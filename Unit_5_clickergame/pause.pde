@@ -4,4 +4,5 @@ void pause(){
 
 
 void pauseClicks(){
+  background(0);
 }

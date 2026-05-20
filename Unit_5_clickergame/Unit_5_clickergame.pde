@@ -4,11 +4,21 @@ final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
 
-
+//variable
+float x,y,d;
+float vx, vy;
 
 void setup() {
   size(800, 800);
   mode= INTRO;
+  textAlign(CENTER,CENTER);
+  //target setup
+  x=width/2;
+  y=height/2;
+  d=width/1.01;
+  vx= random(-5,5);
+  vy= random(-5,5);
+
 }
 
 void draw () {

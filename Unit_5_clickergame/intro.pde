@@ -1,4 +1,5 @@
 void intro(){
+  theme.play();
   background(255);
   rect(300,350,200,100);
   fill(0);

@@ -18,5 +18,7 @@ void game (){
 }
 
 void gameClicks(){
+  inc.rewind();
+  inc.play();
   mode=GAMEOVER;
 }

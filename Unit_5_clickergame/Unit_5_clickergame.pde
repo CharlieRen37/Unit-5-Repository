@@ -1,3 +1,11 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+//mode
 int mode;
 final int INTRO = 0;
 final int GAME = 1;
@@ -7,6 +15,12 @@ final int GAMEOVER = 3;
 //variable
 float x,y,d;
 float vx, vy;
+float score, life;
+
+
+//sound variables
+Minim minim;
+AudioPlayer theme, inc, bump, gameover;
 
 void setup() {
   size(800, 800);
@@ -18,7 +32,15 @@ void setup() {
   d=width/1.01;
   vx= random(-5,5);
   vy= random(-5,5);
-
+  score = 0;
+  life = 3;
+  
+  //minim
+  minim = new Minim(this);
+  theme = minim.loadFile("theme.mp3");
+  inc = minim. loadFile("SUCCESS.wav");
+  bump = minim. loadFile("blendertimer-bounce-8111.mp3");
+  gameover = minim. loadFile("FAILURE.wav");
 }
 
 void draw () {

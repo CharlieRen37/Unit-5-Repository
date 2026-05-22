@@ -11,16 +11,17 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+final int SETTING = 4;
 
 //variable
 float x,y,d;
 float vx, vy;
-float score, life;
+int score, life;
 
 
 //sound variables
 Minim minim;
-AudioPlayer theme, inc, bump, gameover;
+AudioPlayer theme, inc, bump, fail, gameover;
 
 void setup() {
   size(800, 800);
@@ -29,7 +30,7 @@ void setup() {
   //target setup
   x=width/2;
   y=height/2;
-  d=width/1.01;
+  d=width/2;
   vx= random(-5,5);
   vy= random(-5,5);
   score = 0;
@@ -40,7 +41,8 @@ void setup() {
   theme = minim.loadFile("theme.mp3");
   inc = minim. loadFile("SUCCESS.wav");
   bump = minim. loadFile("blendertimer-bounce-8111.mp3");
-  gameover = minim. loadFile("FAILURE.wav");
+  fail = minim. loadFile("FAILURE.wav");
+  gameover=minim. loadFile("kuzu420-game-over-284367.mp3");
 }
 
 void draw () {

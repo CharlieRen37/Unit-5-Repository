@@ -1,15 +1,33 @@
 void intro(){
   theme.play();
   background(255);
-  rect(300,350,200,100);
+  strokeWeight(5);
+  if(mouseX>150&&mouseX<350&&mouseY>350&&mouseY<450){
+    stroke(255,0,0);
+  }else{
+  stroke(0);
+}
+  rect(150,350,200,100);
+  if(mouseX>450&&mouseX<650&&mouseY>350&&mouseY<450){
+    stroke(255,0,0);
+  }else{
+  stroke(0);
+}
+  rect(450,350,200,100);
   fill(0);
   textSize(32);
-  text("START GAME",400,400);
+  text("START GAME",250,400);
+  text("OPTIONS", 550,400);
+  textSize(80);
+  //text("
   noFill();
 }
 
 void introClicks(){
-  if (mouseX>300 && mouseX<500 && mouseY>350 && mouseY<450){
+  if (mouseX>150 && mouseX<350 && mouseY>350 && mouseY<450){
     mode = GAME;
+  }
+  if (mouseX>450&&mouseX<650&&mouseY>350&&mouseY<450){
+    mode = OPTIONS;
   }
 }

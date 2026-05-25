@@ -1,8 +1,14 @@
 void pause(){
-  background(0,0,255);
+  fill(0);
+  textSize(60);
+  text("GAME PAUSED",400,400);
+  noFill();
   stroke(0);
   fill(180,180,180);
   rect(0,0,100,50);
+  fill(0);
+  textSize(30);
+  text("resume", 50,25);
 }
 
 

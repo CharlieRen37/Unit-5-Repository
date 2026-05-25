@@ -24,9 +24,13 @@ void game (){
   stroke(0);
   fill(180,180,180);
   rect(0,0,100,50);
+  fill(0);
+  textSize(30);
+  text("pause", 50,25);
   
   //score
-  text("socre:",360,20);
+  textSize(40);
+  text("score:",360,20);
   text(score,440,20);
   
   //life

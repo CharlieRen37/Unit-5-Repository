@@ -15,13 +15,15 @@ float ballx,bally,balld,vx,vy,k;//ball
 //keyboard variables
 boolean wkey,skey,upkey,downkey;
 
-
+//score
+int rightscore,leftscore,timer;
 
 
 
 
 
 void setup(){
+  textAlign(CENTER,CENTER);
   size(800,800);
   mode=GAME; 
   leftx=0;
@@ -38,10 +40,15 @@ void setup(){
   balld=100;
   vx=random(-5,5);
   vy=random(-5,5);
-  k=30;
+  k=20;
   
   //initialize keyboard vars
   wkey=skey=upkey=downkey=false;
+  
+  //scoring
+  rightscore=0;
+  leftscore=0;
+  timer=100;
 }
 
 

@@ -1,6 +1,6 @@
 void game(){
   background(0);
-  
+  mode=GAME;
   //draw paddles
   
   //color
@@ -16,11 +16,22 @@ void game(){
   if(lefty<=height){
   if(skey==true)lefty=lefty+5;
   }
+  if(AI==false){
   if(righty>=0){
   if(upkey==true)righty=righty-5;
   }
   if(righty<height){
   if(downkey==true)righty=righty+5;
+  }
+  }else{
+    if(ballx>400){
+      if(bally>righty){
+        righty=righty+5;
+      }
+      if(bally<righty){
+        righty=righty-5;
+      }
+    }
   }
   
   //ball
@@ -69,17 +80,26 @@ void game(){
     timer=100;
   }
   
-  //limit
-  if(bally<balld/3){
-    bally=balld/2;
-  }
-  if(bally>height-balld/3){
-    bally=height-balld/2;
-  }
-  if(leftscore>=3||rightscore>=3){
-  mode=GAMEOVER;
+  //limitssssssss
+  
+  //pause
+  stroke(0);
+  fill(180,180,180);
+  rect(0,0,100,50);
+  fill(06);
+  textSize(30);
+  text("pause", 50,25);
+  fill(255);
+  
+  //endgame
+  if(leftscore==3||rightscore==3){
+    mode=GAMEOVER;
   }
 }
 
 void gameClicks(){
+  if(mouseX>0&&mouseX<100&&mouseY>0&&mouseY<50){
+  //theme.pause();
+  mode=PAUSE;
+  }
 }

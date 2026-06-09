@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 //Pong!
 
 
@@ -11,6 +18,7 @@ final int GAMEOVER= 4;
 //entity variables
 float leftx,lefty,leftd, rightx,righty,rightd;//paddles
 float ballx,bally,balld,vx,vy,k;//ball
+boolean AI;
 
 //keyboard variables
 boolean wkey,skey,upkey,downkey;
@@ -18,14 +26,16 @@ boolean wkey,skey,upkey,downkey;
 //score
 int rightscore,leftscore,timer;
 
-
+//sound
+Minim minim;
+AudioPlayer
 
 
 
 void setup(){
   textAlign(CENTER,CENTER);
   size(800,800);
-  mode=GAME; 
+  mode=INTRO; 
   leftx=0;
   lefty=height/2;
   leftd=200;
@@ -40,7 +50,7 @@ void setup(){
   balld=100;
   vx=random(-5,5);
   vy=random(-5,5);
-  k=20;
+  k=15;
   
   //initialize keyboard vars
   wkey=skey=upkey=downkey=false;

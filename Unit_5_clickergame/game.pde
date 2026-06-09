@@ -4,6 +4,15 @@ void game (){
   stroke(0);
   strokeWeight(5);
   circle(x,y,d);
+  if (image==1){
+      image(apple, x,y,r,r);
+  }
+  if (image==2){
+      image(pen, x,y,r,r);
+  }
+  if (image==3){
+      image(pineapple, x,y,r,r);
+  }
   //v
   x=x+vx;
   y=y+vy;
@@ -42,6 +51,8 @@ void gameClicks(){
     score=score+1;
     inc.rewind();
     inc.play();
+    vx=vx*1.1;
+    vy=vy*1.1;
   }else if(mouseX>0&&mouseX<100&&mouseY>0&&mouseY<50){
   theme.pause();
   mode=PAUSE;

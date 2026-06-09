@@ -15,23 +15,32 @@ final int SETTING = 4;
 final int OPTIONS = 5;
 
 //variable
-float x,y,d;
+float x,y,d,r,sliderY;
 float vx, vy;
 int score, life;
+PImage apple, pen, pineapple; 
+float image;
+int highScore;
 
 
+  //PFont title = createFont("BerlinSansFBDemi-Bold-48.vlw",80);
 //sound variables
 Minim minim;
 AudioPlayer theme, inc, bump, fail, gameover;
 
 void setup() {
+  highScore=0;
+  r=150;
+  image=0;
+  sliderY=225;
   size(800, 800);
   mode= INTRO;
+  imageMode(CENTER);
   textAlign(CENTER,CENTER);
   //target setup
   x=width/2;
   y=height/2;
-  d=width/2;
+  d=200;
   vx= random(-5,5);
   vy= random(-5,5);
   score = 0;
@@ -44,6 +53,12 @@ void setup() {
   bump = minim. loadFile("blendertimer-bounce-8111.mp3");
   fail = minim. loadFile("FAILURE.wav");
   gameover=minim. loadFile("kuzu420-game-over-284367.mp3");
+  
+  
+  //image
+  apple = loadImage("apple.png");
+  pen = loadImage("pen.png");
+  pineapple=loadImage("pineapple.png");
 }
 
 void draw () {

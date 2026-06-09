@@ -18,8 +18,9 @@ void intro(){
   textSize(32);
   text("START GAME",250,400);
   text("OPTIONS", 550,400);
+  //textFont(title);
   textSize(80);
-  //text("
+  text("PPAP Clicker",400,200);
   noFill();
 }
 

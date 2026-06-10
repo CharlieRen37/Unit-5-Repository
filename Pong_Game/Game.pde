@@ -45,16 +45,24 @@ void game(){
   if(dist(leftx,lefty,ballx,bally)<=leftd/2+balld/2){
     vx=(ballx-leftx)/k;
     vy=(bally-lefty)/k;
+    bump.rewind();
+    bump.play();
   }
   if(dist(rightx,righty,ballx,bally)<=rightd/2+balld/2){
     vx=(ballx-rightx)/k;
     vy=(bally-righty)/k;
+    bump.rewind();
+    bump.play();
   }
   if(bally<balld/2){
     vy=-vy;
+    bump.rewind();
+    bump.play();
   }
   if(bally>height-balld/2){
     vy=-vy;
+    bump.rewind();
+    bump.play();
   }
   
   //scoreBoard
@@ -72,12 +80,16 @@ void game(){
     ballx=width/2;
     bally=height/2;
     timer=100;
+    score.rewind();
+    score.play();
   }
   if(ballx>width){
     leftscore++;
     ballx=width/2;
     bally=height/2;
     timer=100;
+    score.rewind();
+    score.play();
   }
   
   //limitssssssss
@@ -93,13 +105,15 @@ void game(){
   
   //endgame
   if(leftscore==3||rightscore==3){
+    theme.pause();
+    theme.rewind();
     mode=GAMEOVER;
   }
 }
 
 void gameClicks(){
   if(mouseX>0&&mouseX<100&&mouseY>0&&mouseY<50){
-  //theme.pause();
+  theme.pause();
   mode=PAUSE;
   }
 }

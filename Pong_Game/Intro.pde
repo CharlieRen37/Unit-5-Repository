@@ -1,5 +1,5 @@
 void intro(){
- // theme.play();
+  theme.play();
   background(255);
   strokeWeight(5);
   if(mouseX>150&&mouseX<350&&mouseY>350&&mouseY<450){

@@ -28,7 +28,7 @@ int rightscore,leftscore,timer;
 
 //sound
 Minim minim;
-AudioPlayer
+AudioPlayer bump,score,win,intro,theme;
 
 
 
@@ -59,6 +59,15 @@ void setup(){
   rightscore=0;
   leftscore=0;
   timer=100;
+  
+  //musics
+  minim = new Minim(this);
+  bump =minim.loadFile("mixkit-player-jumping-in-a-video-game-2043.wav");
+  score =minim.loadFile("mixkit-casino-bling-achievement-2067.wav");
+  win =minim.loadFile("mixkit-game-level-completed-2059.wav");
+  intro =minim.loadFile("mixkit-game-level-music-689.wav");
+  theme=minim.loadFile("the_mountain-game-game-music-508018.mp3");
+  
 }
 
 

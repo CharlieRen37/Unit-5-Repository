@@ -1,4 +1,5 @@
 void gameover(){
+  win.play();
   if(leftscore>rightscore){
     background(0,0,255);
     fill(255);
@@ -20,4 +21,6 @@ void gameoverClicks(){
   righty=height/2;
   ballx=width/2;
   bally=height/2;
+  win.pause();
+  win.rewind();
 }

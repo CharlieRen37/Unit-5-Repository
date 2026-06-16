@@ -1,26 +1,22 @@
 void intro(){
-  //theme.play();
-  background(255);
+  theme.play();
+  textFont(font);
+  background(118,111,193);
+  image(gif[f],0,0,width,height);
+  f++;
+  if(f==numberOfFrames)f=0;
   strokeWeight(5);
-  if(mouseX>150&&mouseX<350&&mouseY>350&&mouseY<450){
-    stroke(255,0,0);
-  }else{
-  stroke(0);
-}
-  rect(150,350,200,100);
-  if(mouseX>450&&mouseX<650&&mouseY>350&&mouseY<450){
-    stroke(255,0,0);
-  }else{
-  stroke(0);
-}
-  rect(450,350,200,100);
-  fill(0);
+  fill(82,240,212);
   textSize(32);
-  text("1 PLAYER",250,400);
-  text("2 PLAYERs", 550,400);
   //textFont(title);
-  textSize(80);
-  text("PONG",400,200);
+  textSize(Text);
+  text("BREAKOUT",400,400);
+  if(Text>=200){
+    change=-1;
+  }else if (Text<=50){
+    change=1;
+  }
+  Text=Text+change;
   noFill();
 }
 

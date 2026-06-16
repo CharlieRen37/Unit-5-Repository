@@ -1,11 +1,12 @@
-//import ddf.minim.*;
-//import ddf.minim.analysis.*;
-//import ddf.minim.effects.*;
-//import ddf.minim.signals.*;
-//import ddf.minim.spi.*;
-//import ddf.minim.ugens.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
 
-//Pong!
+//game
+int lives,end;
 
 
 //mod framework
@@ -27,28 +28,55 @@ boolean akey,dkey;
 
 //score
 int score,timer;
-
+//intro
+int Text;
+int change;
 //sound
-//Minim minim;
-//AudioPlayer bump,score,win,intro,theme;
+Minim minim;
+AudioPlayer bump,scores,win,intro,theme,lose,die;
+
+//Font
+PFont font;
+
+//brick Variables
+int [] x;
+int[] y;
+int brickd;
+int n;
+int tempx,tempy;
+boolean [] alive;
 
 
+//gif
+PImage[]gif;
+int numberOfFrames;
+int f;
 
 void setup(){
+  end=1;
+  lives = 3;
+  font=createFont("font.ttf",10);
+  textFont(font);
+  
+  
+  
+  pixelDensity(1);
+  change=1;
+  Text=200;
   textAlign(CENTER,CENTER);
   size(800,800);
   mode=INTRO; 
-  paddley=0;
-  paddlex=height/2;
+  paddley=height;
+  paddlex=width/2;
   paddled=200;
 
   
   //initiallize ball
   ballx=width/2;
-  bally=height/2;
-  balld=100;
-  vx=random(-5,5);
-  vy=random(-5,5);
+  bally=5*height/6;
+  balld=20;
+  vx=0;
+  vy=5;
   k=15;
   
   //initialize keyboard vars
@@ -59,13 +87,47 @@ void setup(){
   timer=100;
   
   //musics
-  //minim = new Minim(this);
-  //bump =minim.loadFile("mixkit-player-jumping-in-a-video-game-2043.wav");
-  //score =minim.loadFile("mixkit-casino-bling-achievement-2067.wav");
-  //win =minim.loadFile("mixkit-game-level-completed-2059.wav");
-  //intro =minim.loadFile("mixkit-game-level-music-689.wav");
-  //theme=minim.loadFile("the_mountain-game-game-music-508018.mp3");
+  minim = new Minim(this);
+  bump =minim.loadFile("mixkit-player-jumping-in-a-video-game-2043.wav");
+  scores =minim.loadFile("mixkit-casino-bling-achievement-2067.wav");
+  win =minim.loadFile("mixkit-game-level-completed-2059.wav");
+  intro =minim.loadFile("mixkit-game-level-music-689.wav");
+  theme=minim.loadFile("the_mountain-game-game-music-508018.mp3");
+  die=minim.loadFile("the-sound-of-lost-profits.mp3");
+  lose=minim.loadFile("kuzu420-game-over-284367 (1).mp3");
   
+  
+  
+  //setup array of bricks
+  brickd=40;
+  n=36;
+  x=new int[n];
+  y = new int [n];
+  alive = new boolean[n];
+  tempx=80;
+  tempy=80;
+  
+  int i=0;
+  while(i<n){
+    x[i]=tempx;
+    y[i]=tempy;
+    alive[i]=true;
+    tempx=tempx+80;
+    if(tempx==width){
+      tempx=80;
+      tempy=tempy+80;
+    }
+    i=i+1;
+  }
+  
+  //gif
+  numberOfFrames=30;
+  gif=new PImage[numberOfFrames];
+  int m =0;
+  while(m<numberOfFrames){
+    gif[m]=loadImage("frame_"+m+"_delay-0.03s.gif");
+    m++;
+  }
 }
 
 

@@ -21,7 +21,7 @@ final int INTERACTIONS= 6;
 
 //entity variables
 float lx,ly,rx,ry,d,la,ra,lr,rr;//turret
-float plx,ply,prx,pry,pd,vlx,vly,vl,vrx,vry,vr,g,wind,tl,tr;//proj
+float plx,ply,prx,pry,pd,vlx,vly,vl,vrx,vry,vr,g,wind,tl,tr,groundy;//proj
 
 //keyboard variables
 boolean wkey, upkey;
@@ -39,7 +39,7 @@ int change;
 //PFont font;
 
 //collision: 
-boolean alivel,aliver; 
+boolean actl,actr; 
 
 
 ////gif
@@ -62,7 +62,7 @@ la=0;
 ra=0;
 lr=5;
 rr=5;
-  alivel=aliver=true;
+  actl=actr=false;
   pixelDensity(1);
   change=1;
   Text=200;
@@ -80,10 +80,11 @@ rr=5;
   vly=0;
   vl=0;
   vrx=vry=vr=0;
-  g=10;
-  wind=0;
+  g=10/10;
+  wind=random(-3/20,3/20);
   tl=0;
   tr=0;
+  groundy=(3*height/4)+1;
   
   //initialize keyboard vars
   wkey=upkey=false;

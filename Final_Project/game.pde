@@ -6,6 +6,15 @@ void game(){
   background(255);
   mode=GAME;
   
+  
+    //draw proj
+  // Draw left projectile every frame
+fill(0, 0, 255);
+circle(plx, ply, pd);
+
+// Draw right projectile every frame
+fill(255, 0, 0);
+circle(prx, pry, pd);
   //draw left turret
   fill(0,0,255);
   if(wkey==false){
@@ -25,7 +34,7 @@ void game(){
       
     tl=tl+1;
     }
-    vl=map(tl,0,5,0,1);
+    vl=map(tl,0,5,0,3);
   }
   
   //vr indication
@@ -33,17 +42,10 @@ void game(){
     if(tr<=5){
       tr=tr+1;
     }
-    vr=map(tr,0,5,0,1);
+    vr=map(tr,0,5,0,3);
   }
   
-  //draw proj
-  // Draw left projectile every frame
-fill(0, 0, 255);
-circle(plx, ply, pd);
 
-// Draw right projectile every frame
-fill(255, 0, 0);
-circle(prx, pry, pd);
 
   
   //collision
@@ -55,6 +57,7 @@ circle(prx, pry, pd);
     vry=0;
     vr=0;
     rscore=rscore+1;
+    actr=false;
     //bump.rewind();
     //bump.play();
   }
@@ -68,6 +71,7 @@ circle(prx, pry, pd);
     lscore=lscore+1;
     //bump.rewind();
     //bump.play();
+    actl=false;
   }
   //l
   if(plx<pd/2){
@@ -78,6 +82,7 @@ circle(prx, pry, pd);
     vl=0;
     //bump.rewind();
     //bump.play();
+    actl=false;
   }
   if(plx>width-(pd/2)){
     //plx=lx;
@@ -87,8 +92,9 @@ circle(prx, pry, pd);
     vl=0;
     //bump.rewind();
     //bump.play();
+    actl=false;
   }
-  if(ply>height-(pd/2)){
+  if(ply>groundy){
     //plx=lx;
     //ply=ly;
     vlx=0;
@@ -96,6 +102,7 @@ circle(prx, pry, pd);
     vl=0;
     //bump.rewind();
     //bump.play();
+    actl=false;
   }
   //r
   if(prx<pd/2){
@@ -106,6 +113,7 @@ circle(prx, pry, pd);
     vr=0;
     //bump.rewind();
     //bump.play();
+    actr=false;
   }
   if(prx>width-pd/2){
     prx=rx;
@@ -115,8 +123,9 @@ circle(prx, pry, pd);
     vr=0;
     //bump.rewind();
     //bump.play();
+    actr=false;
   }
-  if(pry>height-pd/2){
+  if(pry>groundy){
     prx=rx;
     pry=ry;
     vrx=0;
@@ -124,7 +133,35 @@ circle(prx, pry, pd);
     vr=0;
     //bump.rewind();
     //bump.play();
+    actr=false;
   }
+    
+    
+    
+    
+    //ground
+    fill(111,94,47);
+    rect(0,groundy,width,height/2);
+    
+    //g
+    if(actl==true){
+      vly=vly+0.1;
+    }
+    if(actr==true){
+      vry=vry+0.1;
+    }
+    
+    //wind
+    if(actl==true){
+      vlx=vlx+wind;
+    }
+    if(actr==true){
+      vrx=vrx+wind;
+    }
+      
+    
+    
+  
   
   
   

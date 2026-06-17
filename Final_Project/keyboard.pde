@@ -18,6 +18,7 @@ void keyReleased(){
   plx=lx+sin(radians(la))*75;
   ply=ly-cos(radians(la))*75;
   tl=0;
+  actl=true;
   }
   if(keyCode==UP){
     upkey=false;
@@ -31,6 +32,7 @@ void keyReleased(){
   //prx=prx+vrx;
   //pry=prx+vry;
   tr=0;
+  actr=true;
   }
   
 }

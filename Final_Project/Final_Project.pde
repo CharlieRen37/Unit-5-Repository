@@ -71,9 +71,9 @@ rr=5;
   mode=INTRO; 
   
   //initiallize turret
-  plx=lx=width/4;
+  plx=lx=width/6;
   ply=pry=ry=ly=3*height/4;
-  prx=rx=3*width/4;
+  prx=rx=5*width/6;
   d=100;
   pd=10;
   vlx=0;

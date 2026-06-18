@@ -17,32 +17,32 @@ fill(255, 0, 0);
 circle(prx, pry, pd);
   //draw left turret
   fill(0,0,255);
-  if(wkey==false){
+  //if(wkey==false){
     leftturret();
-  }
+  //}
     circle(lx,ly,d);
   //draw left turret
   fill(255,0,0);
-    if(upkey==false){
+  //  if(upkey==false){
     rightturret();
-  }
+  //}
   circle(rx,ry,d);
   
   //vl indication
   if(wkey==true){
-    if(tl<=5){
+    if(tl<=50){
       
     tl=tl+1;
     }
-    vl=map(tl,0,5,0,3);
+    vl=map(tl,0,50,0,7);
   }
   
   //vr indication
   if(upkey==true){
-    if(tr<=5){
+    if(tr<=50){
       tr=tr+1;
     }
-    vr=map(tr,0,5,0,3);
+    vr=map(tr,0,50,0,7);
   }
   
 
@@ -63,8 +63,8 @@ circle(prx, pry, pd);
   }
   //rl
   if(dist(rx,ry,plx,ply)<=pd/2+d/2){
-    //plx=lx;
-    //ply=ly;
+    plx=lx;
+    ply=ly;
     vlx=0;
     vly=0;
     vl=0;
@@ -75,8 +75,8 @@ circle(prx, pry, pd);
   }
   //l
   if(plx<pd/2){
-    //plx=lx;
-    //ply=ly;
+    plx=lx;
+    ply=ly;
     vlx=0;
     vly=0;
     vl=0;
@@ -85,8 +85,8 @@ circle(prx, pry, pd);
     actl=false;
   }
   if(plx>width-(pd/2)){
-    //plx=lx;
-    //ply=ly;
+    plx=lx;
+    ply=ly;
     vlx=0;
     vly=0;
     vl=0;
@@ -95,8 +95,8 @@ circle(prx, pry, pd);
     actl=false;
   }
   if(ply>groundy){
-    //plx=lx;
-    //ply=ly;
+    plx=lx;
+    ply=ly;
     vlx=0;
     vly=0;
     vl=0;
